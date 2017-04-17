@@ -1,0 +1,51 @@
+{extend name="edit"} 
+{block name="title"}
+{eq name="User->id" value=""}添加用户{else /}编辑用户{/eq}
+{/block}
+{block name="content"}
+<form class="form-horizontal" action="{:url('save')}" method="post">
+  <div class="form-group">
+    <input type="hidden" name="id" value="{$User->id}" />
+    <label>员工号:</label>
+        {eq name="User->user_number" value=""}
+    <input type="text" name="user_number" value="{$User->user_number}" />{else /} {$User->user_number} {/eq}
+     </div>
+       <div class="form-group">
+    <label>姓名:</label>
+    {eq name="User->user_name" value=""}
+    <input type="text" name="user_name" value="{$User->user_name}" /> {else /} {$User->user_name} {/eq}
+     </div>
+       <div class="form-group">
+    <label>密码:</label>
+        {eq name="User->user_password" value=""}
+    <input type="text" name="user_password" value="{$User->user_password}" />{else /} {$User->user_password} {/eq}
+     </div>
+       <div class="form-group">
+    <label>手机:</label>
+        {eq name="User->user_cellphone" value=""}
+    <input type="text" name="user_cellphone" value="{$User->user_cellphone}" /> {else /} {$User->user_cellphone} {/eq}
+     </div>
+       <div class="form-group">
+    <label>地址:</label>
+        {eq name="User->user_address" value=""}
+    <input type="text" name="user_address" value="{$User->user_address}" />{else /} {$User->user_address} {/eq}
+     </div>
+       <div class="form-group">
+    <label>团队:</label>
+        {eq name="User->team_id" value=""}
+    <input type="text" name="team_id" value="{$User->team_id}" />{else /} {$User->team_id} {/eq}
+     </div>
+       <div class="form-group">
+    <label>权限分组:</label>
+        {eq name="User->group_id" value=""}
+    <input type="text" name="group_id" value="{$User->group_id}" />{else /} {$User->group_id} {/eq}
+     </div>
+       <div class="form-group">
+    <label>备注:</label>
+        {eq name="User->user_remarks" value=""}
+    <input type="text" name="user_remarks" value="{$User->user_remarks}" />{else /} {$User->user_remarks} {/eq}
+     </div>    
+
+    <button type="submit">保存</button>
+</form>
+{/block}

@@ -1,0 +1,40 @@
+{extend name="edit"} 
+{block name="title"}
+{eq name="Dictionary->id" value=""}添加字典项{else /}编辑字典项{/eq}
+
+{/block}
+
+{block name="content"}
+<form class="form-horizontal" action="{:url('save')}" method="post">
+  <div class="form-group">
+    <input type="hidden" name="id" value="{$Dictionary->id}" />
+    <label>类型:</label>
+        {eq name="Dictionary->dictionary_type" value=""}
+    <input type="text" name="dictionary_type" value="{$Dictionary->dictionary_type}" />{else /} {$Dictionary->dictionary_type} {/eq}
+     </div>
+       <div class="form-group">
+    <label>顺序:</label>
+    {eq name="Dictionary->dictionary_value" value=""}
+    <input type="text" name="dictionary_value" value="{$Dictionary->dictionary_value}" /> {else /} {$Dictionary->dictionary_value} {/eq}
+     </div>
+       <div class="form-group">
+    <label>字典项值:</label>
+        {eq name="Dictionary->dictionary_sequence" value=""}
+    <input type="text" name="dictionary_sequence" value="{$Dictionary->dictionary_sequence}" />{else /} {$Dictionary->dictionary_sequence} {/eq}
+     </div>
+       <div class="form-group">
+    <label>详细内容:</label>
+        {eq name="Dictionary->dictionary_detail" value=""}
+    <input type="text" name="dictionary_detail" value="{$Dictionary->dictionary_detail}" /> {else /} {$Dictionary->dictionary_detail} {/eq}
+     </div>
+       <div class="form-group">
+    <label>备注:</label>
+        {eq name="Dictionary->dictionary_remarks" value=""}
+    <input type="text" name="dictionary_remarks" value="{$Dictionary->dictionary_remarks}" />{else /} {$Dictionary->dictionary_remarks} {/eq}
+     </div>
+       <div class="form-group">
+ 
+
+    <button type="submit">保存</button>
+</form>
+{/block}

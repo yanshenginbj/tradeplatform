@@ -1,0 +1,35 @@
+{extend name="index"/}
+{block name="title"}
+字典管理
+{/block}
+
+{block name="content"}
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th>序号</th>
+        <th>类型</th>
+        <th>顺序</th>
+        <th>字典项值</th>
+        <th>详细内容</th>
+        <th>备注</th>
+        <th>操作</th>
+    </tr>
+    {volist name="dictionarys" id="dictionary" key="key"}
+    <tr>
+        <td>{$key}</td>
+        <td>{$dictionary->getData('dictionary_type')}</td>
+        <td>{$dictionary->getData('dictionary_value')}</td>
+        <td>{$dictionary->getData('dictionary_sequence')}</td>
+        <td>{$dictionary->getData('dictionary_detail')}</td>
+        <td>{$dictionary->getData('dictionary_remarks')}</td>
+        <td>
+            <a href="{:url('edit?id=' . $dictionary->getData('id'))}">编辑</a> &nbsp;&nbsp;
+            <a href="{:url('delete?id=' . $dictionary->getData('id'))}">删除</a>
+        </td>
+    </tr>
+    {/volist}
+</table>
+{/block}
+{block name="page"}
+
+{/block}
